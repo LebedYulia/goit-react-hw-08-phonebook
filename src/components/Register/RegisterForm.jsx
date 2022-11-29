@@ -41,7 +41,7 @@ export const RegisterForm = () => {
         />
       </Label>
       <Label htmlFor="password">
-        Number
+        Password
         <input
           type="password"
           name="password"
