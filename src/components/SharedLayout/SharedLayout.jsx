@@ -9,7 +9,7 @@ export const SharedLayout = () => {
       <Header>
         <nav>
           <Link to="/" end>
-            Main
+            Home
           </Link>
           <Link to="/contacts">My contacts</Link>
           <Link to="/register">Register</Link>

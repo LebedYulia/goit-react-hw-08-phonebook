@@ -35,7 +35,7 @@ export const RegisterForm = () => {
         <input
           type="email"
           name="email"
-          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+          // pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Email must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
         />
@@ -45,7 +45,7 @@ export const RegisterForm = () => {
         <input
           type="password"
           name="password"
-          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+          // pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Password must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
         />
