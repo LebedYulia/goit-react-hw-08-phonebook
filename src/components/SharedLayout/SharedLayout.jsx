@@ -1,23 +1,23 @@
 import { Outlet } from 'react-router-dom';
-import { Suspense } from "react";
-import { ThreeDots } from 'react-loader-spinner';
-import { Container, Header, Link } from './SharedLayout.styled';
+import { Suspense } from 'react';
+import { useSelector } from 'react-redux';
+import { selectLogIn } from 'redux/auth/selectors';
+import { Navigation } from 'components/Navigation';
+import { Container, Header } from './SharedLayout.styled';
+import { AuthNav } from 'components/AuthNav';
+import { Logout } from 'components/Logout/Logout';
 
 export const SharedLayout = () => {
+  const isLoggedIn = useSelector(selectLogIn);
+
   return (
     <Container>
       <Header>
-        <nav>
-          <Link to="/" end>
-            Home
-          </Link>
-          <Link to="/contacts">My contacts</Link>
-          <Link to="/register">Register</Link>
-          <Link to="/login">Login</Link>
-        </nav>
+        <Navigation />
+        {!isLoggedIn ? <AuthNav /> : <Logout />}
       </Header>
-      <Suspense fallback={ <ThreeDots color="red" wrapperStyle={{ margin: 'auto' }} />}>
-      <Outlet />
+      <Suspense fallback={null}>
+        <Outlet />
       </Suspense>
     </Container>
   );
