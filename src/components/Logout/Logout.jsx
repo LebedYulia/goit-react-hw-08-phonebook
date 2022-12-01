@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { logOut } from 'redux/auth/operations';
-import { Button } from 'components/RegisterForm/RegisterForm.styled';
+import { Button } from 'components/ContactForm/ContactForm.styled';
 
 export const Logout = () => {
   const dispatch = useDispatch();

@@ -1,13 +1,13 @@
 import { Helmet } from 'react-helmet';
+import { Main } from 'components/Main/Main';
 
 export const MainPage = () => {
   return (
-    <>
+    <div>
       <Helmet>
         <title>Main</title>
       </Helmet>
-      <h1>Welcome to Contacts Book</h1>
-      <p>To create your contact book please register</p>
-    </>
+      <Main />
+    </div>
   );
 };
