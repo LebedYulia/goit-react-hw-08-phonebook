@@ -8,7 +8,7 @@ export const Main = () => {
         <img src={picture} alt="contacts book" width="400" />
       </div>
       <Box>
-        <h1>Welcome to Contacts Book</h1>
+        <h1>Welcome to Phone Book</h1>
         <Text>
           Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
           commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus

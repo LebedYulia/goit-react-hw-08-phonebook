@@ -1,22 +1,31 @@
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
+import ListItem from '@mui/material/ListItem';
+import IconButton from '@mui/material/IconButton';
+import ListItemText from '@mui/material/ListItemText';
+import DeleteIcon from '@mui/icons-material/Delete';
 import { deleteContact } from 'redux/contacts/operations';
-import { Contact, ContactInfo } from './ContactItem.styled';
-import { Button } from 'components/ContactForm/ContactForm.styled';
+
+
 
 export const ContactItem = ({ id, name, number }) => {
   const dispatch = useDispatch();
-  const handleDelete = () => dispatch(deleteContact(id))
+  const handleDelete = () => dispatch(deleteContact(id));
 
   return (
-    <Contact>
-      <ContactInfo>
-        {name}: {number}
-      </ContactInfo>
-      <Button type="button" onClick={handleDelete}>
-        Delete
-      </Button>
-    </Contact>
+    <>
+      <ListItem
+        secondaryAction={
+          <IconButton onClick={handleDelete} edge="end" aria-label="delete">
+            <DeleteIcon />
+          </IconButton>
+        }
+      >
+        <ListItemText>
+          {name}: {number}
+        </ListItemText>
+      </ListItem>
+    </>
   );
 };
 

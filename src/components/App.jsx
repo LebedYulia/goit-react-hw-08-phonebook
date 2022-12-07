@@ -5,6 +5,7 @@ import { MainPage } from 'pages/Main';
 import { RegistrationPage } from 'pages/Registration';
 import { LoginPage } from 'pages/Login';
 import { Contacts } from 'components/Contacts';
+import { Toaster } from 'react-hot-toast';
 
 export const App = () => {
   return (
@@ -33,12 +34,32 @@ export const App = () => {
           <Route
             path="/contacts"
             element={
-              <PrivateRoute redirectTo="/login" 
-              component={<Contacts />} />
+              <PrivateRoute redirectTo="/login" component={<Contacts />} />
             }
           />
         </Route>
       </Routes>
+      <Toaster
+        position="top-right"
+        duration="3000"
+        toastOptions={{
+          error: {
+            style: {
+              border: '2px solid red',
+            },
+          },
+          success: {
+            style: {
+              background: '#53ad57',
+              color: '#fff',
+            },
+            iconTheme: {
+              primary: 'white',
+              secondary: 'green',
+            },
+          },
+        }}
+      />
     </>
   );
 };

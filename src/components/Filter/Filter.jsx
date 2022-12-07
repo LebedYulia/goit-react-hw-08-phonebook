@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { changeFilter } from 'redux/contacts/filterSlice';
-import { Label } from '../ContactForm/ContactForm.styled';
+import TextField from '@mui/material/TextField';
 
 export const Filter = () => {
   const dispatch = useDispatch();
@@ -11,11 +11,16 @@ export const Filter = () => {
     dispatch(changeFilter(filter))
   }
    
-  return (
-    <Label>
-      Find contacts by name
-      <input type="text" name="filter"  onChange={handleChange} />
-    </Label>
+  return (    
+    <TextField
+    fullWidth
+    id="filter"
+    name="filter"
+    label=" Find contacts by name"
+    onChange={handleChange}
+    margin="normal"
+    size="small"   
+  />
   );
 };
 

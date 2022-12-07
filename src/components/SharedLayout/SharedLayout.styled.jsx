@@ -27,10 +27,15 @@ export const Link = styled(NavLink)`
   border-radius: 4px;
   text-decoration: none;
   color: black;
-  font-weight: 500;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 0.02857em;
+  font-weight: 700;  
+  
 
   &.active {
+    font-weight: 400;  
     color: white;
-    background-color: orangered;
+    background-color: #ed6c02;
   }
 `;

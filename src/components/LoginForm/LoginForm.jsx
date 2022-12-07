@@ -1,47 +1,72 @@
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/operations';
-import { Form, Label, Button } from 'components/ContactForm/ContactForm.styled';
+import { useFormik } from 'formik';
+import * as yup from 'yup';
+import Button from '@mui/material/Button';
+import SendIcon from '@mui/icons-material/Send';
+import TextField from '@mui/material/TextField';
+
+
+const validationSchema = yup.object({
+  email: yup
+    .string('Enter your email')
+    .email('Enter a valid email')
+    .required('Email is required'),
+  password: yup
+    .string('Enter your password')
+    .min(7, 'Password should be of minimum 7 characters length')
+    .required('Password is required'),
+});
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
 
-  const handleSubmit = e => {
-    e.preventDefault();
-    const form = e.currentTarget;
-    dispatch(
-        logIn({        
-        email: form.elements.email.value,
-        password: form.elements.password.value,
-      })
-    );
-    form.reset();
-  };
+  const formik = useFormik({
+    initialValues: {
+      email: '',
+      password: '',
+    },
+    validationSchema: validationSchema,
+    onSubmit: values => {      
+      dispatch(logIn(values));
+    },
+  });
 
   return (
-    <Form onSubmit={handleSubmit}>
-      
-      <Label htmlFor="email">
-        Number
-        <input
-          type="email"
-          name="email"
-          // pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-          title="Email must be digits and can contain spaces, dashes, parentheses and can start with +"
-          required
-        />
-      </Label>
-      <Label htmlFor="password">
-        Password
-        <input
-          type="password"
-          name="password"
-          // pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-          title="Password must be digits and can contain spaces, dashes, parentheses and can start with +"
-          required
-        />
-      </Label>
+    <form onSubmit={formik.handleSubmit} style={{ width: 500, margin: 'auto' }}>
+      <TextField
+        fullWidth
+        id="email"
+        name="email"
+        label="Email"
+        onChange={formik.handleChange}
+        margin="normal"
+        size="small"
+        error={formik.touched.email && Boolean(formik.errors.email)}
+        helperText={formik.touched.email && formik.errors.email}
+      />
 
-      <Button type="submit">Login</Button>
-    </Form>
+      <TextField
+        fullWidth
+        id="password"
+        name="password"
+        label="Password"
+        type="password"
+        onChange={formik.handleChange}
+        margin="normal"
+        size="small"
+        error={formik.touched.password && Boolean(formik.errors.password)}
+        helperText={formik.touched.password && formik.errors.password}
+      />
+
+      <Button 
+      fullWidth
+      endIcon={<SendIcon />}
+      color="warning" 
+      variant="contained"  
+      type="submit">
+        Send
+      </Button>
+    </form>
   );
 };
