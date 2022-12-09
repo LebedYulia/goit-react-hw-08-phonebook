@@ -7,6 +7,7 @@ import { ContactForm } from 'components/ContactForm/ContactForm';
 import { Filter } from 'components/Filter/Filter';
 import { ContactList } from 'components/ContactList/ContactList';
 import Box from '@mui/material/Box';
+import { ThreeDots } from 'react-loader-spinner';
 
 export const Contacts = () => {
   const dispatch = useDispatch();
@@ -33,7 +34,7 @@ export const Contacts = () => {
       <Section title={'Contacts'}>
         <Filter />
         {error && <b>Server Error</b>}
-        {isLoading && !error && <b>Request in progress...</b>}
+        {isLoading && !error && <ThreeDots color="#ed6c02" />}
         <ContactList />
       </Section>
     </Box>

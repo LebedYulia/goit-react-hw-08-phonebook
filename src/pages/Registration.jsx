@@ -2,7 +2,7 @@ import { Helmet } from 'react-helmet';
 import { RegisterForm } from 'components/RegisterForm/RegisterForm';
 
 
-export const RegistrationPage = () => {
+const RegistrationPage = () => {
   return (
     <>
       <Helmet>
@@ -12,3 +12,5 @@ export const RegistrationPage = () => {
     </>
   );
 };
+
+export default RegistrationPage;

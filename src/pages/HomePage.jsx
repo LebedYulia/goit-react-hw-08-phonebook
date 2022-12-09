@@ -1,13 +1,15 @@
 import { Helmet } from 'react-helmet';
-import { Main } from 'components/Main/Main';
+import { Home } from 'components/Home/Home';
 
-export const MainPage = () => {
+ const HomePage = () => {
   return (
     <div>
       <Helmet>
         <title>Main</title>
       </Helmet>
-      <Main />
+      <Home />
     </div>
   );
 };
+
+export default HomePage;

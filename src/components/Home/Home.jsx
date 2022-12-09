@@ -1,7 +1,7 @@
 import picture from 'components/images/grey.jpg';
-import { Container, Text, Box } from './Main.styled';
+import { Container, Text, Box } from './Home.styled';
 
-export const Main = () => {
+export const Home = () => {
   return (
     <Container>
       <div>

@@ -1,13 +1,15 @@
 import { Helmet } from 'react-helmet';
-import { Contacts } from '../components/Contacts'
+import { Contacts } from '../components/Contacts';
 
-export const MyContactsPage = () => {
+const MyContacts = () => {
   return (
     <>
       <Helmet>
         <title>My contacts</title>
       </Helmet>
-      <Contacts />      
+      <Contacts />
     </>
   );
 };
+
+export default MyContacts;

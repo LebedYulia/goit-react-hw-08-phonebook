@@ -1,18 +1,29 @@
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import { lazy } from 'react';
+import { Toaster } from 'react-hot-toast';
 import { RestrictedRoute, PrivateRoute } from 'components/Routes';
 import { SharedLayout } from 'components/SharedLayout/SharedLayout';
-import { MainPage } from 'pages/Main';
-import { RegistrationPage } from 'pages/Registration';
-import { LoginPage } from 'pages/Login';
-import { Contacts } from 'components/Contacts';
-import { Toaster } from 'react-hot-toast';
+import { NotFound } from 'components/NotFound';
+import { refreshUser } from 'redux/auth/operations';
+
+const HomePage = lazy(() => import('pages/HomePage'));
+const RegistrationPage = lazy(() => import('pages/Registration'));
+const LoginPage = lazy(() => import('pages/Login'));
+const Contacts = lazy(() => import('pages/MyContacts'));
 
 export const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(refreshUser(), []);
+  });
   return (
     <>
       <Routes>
         <Route path="/" element={<SharedLayout />}>
-          <Route index element={<MainPage />} />
+          <Route index element={<HomePage />} />
           <Route
             path="/register"
             element={
@@ -37,6 +48,7 @@ export const App = () => {
               <PrivateRoute redirectTo="/login" component={<Contacts />} />
             }
           />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
       <Toaster

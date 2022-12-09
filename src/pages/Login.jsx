@@ -2,7 +2,7 @@ import { Helmet } from 'react-helmet';
 import { LoginForm } from 'components/LoginForm/LoginForm';
 
 
-export const LoginPage = () => {
+const LoginPage = () => {
   return (
     <>
       <Helmet>
@@ -12,3 +12,5 @@ export const LoginPage = () => {
     </>
   );
 };
+
+export default LoginPage;
