@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchContacts } from 'redux/contacts/operations';
 import { selectIsLoading, selectError } from 'redux/contacts/selectors';
 import { Section } from 'components/Section/Section';
-import { ContactForm } from 'components/ContactForm/ContactForm';
-import { Filter } from 'components/Filter/Filter';
-import { ContactList } from 'components/ContactList/ContactList';
+import { ContactForm } from 'components/ContactForm';
+import { Filter } from 'components/Filter';
+import { ContactList } from 'components/ContactList';
 import Box from '@mui/material/Box';
 import { ThreeDots } from 'react-loader-spinner';
 

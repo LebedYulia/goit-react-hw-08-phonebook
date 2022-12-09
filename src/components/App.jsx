@@ -53,7 +53,7 @@ export const App = () => {
       </Routes>
       <Toaster
         position="top-right"
-        duration="3000"
+        duration="5000"
         toastOptions={{
           error: {
             style: {
